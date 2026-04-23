@@ -1,179 +1,704 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yile Yang | 杨逸乐</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root { --primary: #2563eb; --bg: #f8fafc; --card: #fff; --text: #0f172a; --text-secondary: #475569; --border: #e2e8f0; --radius: 12px; }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.container { max-width:900px; margin:0 auto; padding:0 24px; }
-.hero { background:linear-gradient(135deg,#1e3a5f,#2563eb); color:#fff; padding:64px 0 48px; }
-.hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:8px; }
-.hero .subtitle { font-size:1.1rem; opacity:.9; margin-bottom:4px; }
-.hero .tagline { font-size:.95rem; opacity:.7; margin-bottom:20px; }
-.hero-links { display:flex; gap:16px; flex-wrap:wrap; }
-.hero-links a { color:#fff; text-decoration:none; font-size:.9rem; padding:8px 20px; border:1px solid rgba(255,255,255,.3); border-radius:8px; transition:all .2s; }
-.hero-links a:hover { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.6); }
-.section { padding:48px 0; }
-.section-title { font-size:1.3rem; font-weight:600; margin-bottom:24px; display:flex; align-items:center; gap:10px; }
-.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
-.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:16px; transition:box-shadow .2s; }
-.card:hover { box-shadow:0 2px 12px rgba(0,0,0,.06); }
-.card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; gap:12px; flex-wrap:wrap; }
-.card-title { font-size:1.05rem; font-weight:600; }
-.card-subtitle { font-size:.85rem; color:var(--primary); font-weight:500; }
-.card-date { font-size:.8rem; color:var(--text-secondary); white-space:nowrap; }
-.card-body { font-size:.92rem; color:var(--text-secondary); }
-.card-body ul { padding-left:18px; margin-top:6px; }
-.card-body li { margin-bottom:4px; }
-.skills { display:flex; flex-wrap:wrap; gap:8px; }
-.skill-tag { background:#eff6ff; color:var(--primary); font-size:.82rem; padding:4px 14px; border-radius:20px; font-weight:500; }
-.download-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
-.download-btn { display:flex; align-items:center; gap:10px; padding:14px 18px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--text); font-size:.88rem; font-weight:500; transition:all .2s; }
-.download-btn:hover { border-color:var(--primary); color:var(--primary); box-shadow:0 2px 8px rgba(37,99,235,.1); }
-.download-btn .icon { font-size:1.2rem; }
-footer { text-align:center; padding:32px; color:var(--text-secondary); font-size:.85rem; border-top:1px solid var(--border); }
-@media (max-width:600px) { .hero h1 { font-size:1.8rem; } .hero { padding:40px 0 32px; } .section { padding:32px 0; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>杨逸乐 | Yile Yang — AI + Drug Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========== 导航栏 ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .nav-links a:hover {
+            opacity: 1;
+        }
+        @media (max-width: 640px) {
+            .nav-links { gap: 20px; }
+            .nav-container { padding: 12px 24px; }
+            .logo { font-size: 1rem; }
+            .nav-links a { font-size: 0.8rem; }
+        }
+
+        /* ========== Hero 区域 ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #ffffff 0%, #999 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #aaa;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 32px;
+            max-width: 600px;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+            opacity: 0;
+        }
+        .hero-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary {
+            background: #ffffff;
+            color: #000000;
+        }
+        .btn-primary:hover {
+            background: #e0e0e0;
+            transform: scale(1.02);
+        }
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            background: transparent;
+        }
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.02);
+        }
+
+        /* ========== 区域通用样式 ========== */
+        section {
+            padding: 100px 0;
+        }
+        .section-header {
+            margin-bottom: 56px;
+        }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.75rem; }
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 60px 0; }
+            .container { padding: 0 24px; }
+        }
+
+        /* ========== 卡片网格 ========== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 24px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+        .card:hover {
+            border-color: #333;
+            transform: translateY(-4px);
+            background: #0d0d0d;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .card-subtitle {
+            font-size: 0.8rem;
+            color: #ffffff;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+        .card-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #888;
+            background: #1a1a1a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .card-body {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+        .card-body ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card-body li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+        }
+        .card-body li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        /* ========== 技能标签 ========== */
+        .skills-container {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 24px;
+            padding: 32px;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .skill-tag {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid #2a2a2a;
+        }
+        .skill-tag:hover {
+            background: #2a2a2a;
+            border-color: #444;
+            transform: scale(1.02);
+        }
+
+        /* ========== 下载区域 ========== */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .download-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+        .download-card:hover {
+            border-color: #444;
+            background: #111;
+            transform: translateY(-2px);
+        }
+        .download-icon {
+            font-size: 1.6rem;
+        }
+        .download-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .download-info p {
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        /* ========== 页脚 ========== */
+        .footer {
+            border-top: 1px solid #1f1f1f;
+            padding: 48px 0;
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* ========== 动效定义 ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 滚动触发动画（使用 Intersection Observer，降级处理） */
+        .fade-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 发光文字效果 */
+        .glow-text {
+            transition: text-shadow 0.3s ease;
+        }
+        .glow-text:hover {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="container">
-    <h1>&#x6768;&#x9038;&#x4E50; &#x2022; Yile Yang</h1>
-    <div class="subtitle">AI + Drug Discovery | Sun Yat-sen University</div>
-    <div class="tagline">GPA 4.2/5.0 &#x2022; Rank 1/74 &#x2022; PhD @ Boston University</div>
-    <div class="hero-links">
-      <a href="mailto:yangyle3@mail2.sysu.edu.cn">yangyle3@mail2.sysu.edu.cn</a>
-      <a href="tel:+8613934727949">+86 13934727949</a>
-      <a href="#resume">Resume / CV</a>
-    </div>
-  </div>
-</section>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <span class="logo">Yile Yang</span>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#education">Education</a>
+                <a href="#research">Research</a>
+                <a href="#skills">Skills</a>
+                <a href="#resume">Resume</a>
+            </div>
+        </div>
+    </nav>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Education</h2>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Boston University</div><div class="card-subtitle">PhD Direct Admission &mdash; AI + Drug Discovery</div></div>
-        <div class="card-date">2026 Fall</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">National University of Singapore</div><div class="card-subtitle">Summer Exchange</div></div>
-        <div class="card-date">2024 Summer</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Sun Yat-sen University</div><div class="card-subtitle">B.S. in Pharmacy &mdash; GPA 4.2/5.0, Rank 1/74</div></div>
-        <div class="card-date">2022 &ndash; 2026</div>
-      </div>
-      <div class="card-body">Key courses: Pharmacy, Pharmacology, Medical Statistical Modeling, Bioinformatics, AI in Pharmacy</div>
-    </div>
-  </div>
-</section>
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">AI + DRUG DISCOVERY</div>
+                    <h1>杨逸乐 <span>Yile Yang</span></h1>
+                    <div class="hero-subtitle">中山大学 · 药学专业 · 波士顿大学 PhD 直录</div>
+                    <div class="hero-desc">
+                        GPA 4.2/5.0 · 专业排名 1/74 · 专注于深度学习驱动的药物发现
+                    </div>
+                    <div class="hero-links">
+                        <a href="mailto:yangyle3@mail2.sysu.edu.cn" class="btn btn-primary">
+                            📧 yangyle3@mail2.sysu.edu.cn
+                        </a>
+                        <a href="#resume" class="btn btn-secondary">
+                            📄 查看简历
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Research Experience (AI + Drug Discovery)</h2>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Westlake University &mdash; Prof. Jing Huang</div><div class="card-subtitle">Conditional Diffusion Model for Pharmacophore-guided Molecular Generation</div></div>
-        <div class="card-date">2025.07 &ndash; 09</div>
-      </div>
-      <div class="card-body">Developed conditional diffusion models for pharmacophore-constrained molecular generation.</div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Sun Yat-sen University &mdash; Prof. Jing Qin</div><div class="card-subtitle">L1000 Transcriptome-based Drug-like Molecule Generation</div></div>
-        <div class="card-date">2024.03 &ndash; 2025.09</div>
-      </div>
-      <div class="card-body">Generated drug-like molecules from L1000 transcriptomic data using conditional GANs/VAEs.</div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Sun Yat-sen University &mdash; Prof. Wenbin Deng</div><div class="card-subtitle">Exosome Therapy Research</div></div>
-        <div class="card-date">2023.07 &ndash; 2024.03</div>
-      </div>
-      <div class="card-body">Investigated exosome therapeutics. Skilled in wet-lab techniques: qPCR, ELISA, flow cytometry.</div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">First-author Review (under review)</div><div class="card-subtitle">Multi-Omics and AI in Cancer Drug Discovery</div></div>
-      </div>
-      <div class="card-body">Systematic review of multi-omics + AI in target identification and drug response prediction.</div>
-    </div>
-  </div>
-</section>
+        <!-- Education -->
+        <section id="education">
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Education</div>
+                    <h2 class="section-title">教育背景</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Boston University</div>
+                                <div class="card-subtitle">PhD Direct Admission — AI + Drug Discovery</div>
+                            </div>
+                            <div class="card-date">2026 Fall</div>
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">National University of Singapore</div>
+                                <div class="card-subtitle">Summer Exchange Program</div>
+                            </div>
+                            <div class="card-date">2024 Summer</div>
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Sun Yat-sen University</div>
+                                <div class="card-subtitle">B.S. in Pharmacy · GPA 4.2/5.0 · Rank 1/74</div>
+                            </div>
+                            <div class="card-date">2022 – 2026</div>
+                        </div>
+                        <div class="card-body">
+                            核心课程：药剂学、药理学、医学统计建模、生物信息学、人工智能药学
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Industry &amp; Entrepreneurship</h2>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">AI Mentor Matching Mini-Program</div><div class="card-subtitle">Independent Developer &amp; Founder</div></div>
-      </div>
-      <div class="card-body">Interviewed 50+ users to identify pain points. Launched MVP and led 2 iterations.</div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div><div class="card-title">Guangzhou Renhezhi Technology &mdash; AI Psychology Product</div><div class="card-subtitle">Product Intern</div></div>
-        <div class="card-date">2026.02 &ndash; 04</div>
-      </div>
-      <div class="card-body">Proposed "AI Psychologist Digital Twin" concept and facilitated collaboration.</div>
-    </div>
-  </div>
-</section>
+        <!-- Research Experience -->
+        <section id="research">
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Research</div>
+                    <h2 class="section-title">研究经历 · AI + 药物发现</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">西湖大学 — 黄晶教授</div>
+                                <div class="card-subtitle">条件扩散模型用于药效团引导的分子生成</div>
+                            </div>
+                            <div class="card-date">2025.07 – 09</div>
+                        </div>
+                        <div class="card-body">
+                            开发了用于药效团约束分子生成的条件扩散模型，为结合生成模型与PK-PD预测奠定基础。
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">中山大学 — 覃静教授</div>
+                                <div class="card-subtitle">基于L1000转录组数据的类药分子生成</div>
+                            </div>
+                            <div class="card-date">2024.03 – 2025.09</div>
+                        </div>
+                        <div class="card-body">
+                            使用条件GANs/VAEs从L1000转录组数据生成类药分子，精通高维生物数据特征提取与降维。
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">中山大学 — 邓文斌教授</div>
+                                <div class="card-subtitle">外泌体治疗研究</div>
+                            </div>
+                            <div class="card-date">2023.07 – 2024.03</div>
+                        </div>
+                        <div class="card-body">
+                            研究外泌体疗法，熟练掌握qPCR、ELISA、流式细胞术等湿实验技术。
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">一作综述（在审）</div>
+                                <div class="card-subtitle">多组学与AI在癌症药物发现中的应用</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            系统综述多组学+AI在靶点识别和药物响应预测中的应用。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">AI &amp; Technical Skills</h2>
-    <div class="card">
-      <div class="card-body">
-        <p><strong>AI/ML:</strong> Diffusion Models, GANs, VAEs, GNNs, CNN, Transformer</p>
-        <p style="margin-top:8px"><strong>Programming:</strong> Python, R, Linux; PyTorch/TensorFlow; Prompt Engineering</p>
-        <p style="margin-top:8px"><strong>Pharmacometrics:</strong> L1000, Transcriptomics, Feature Engineering, Model Evaluation</p>
-      </div>
-    </div>
-    <div class="skills" style="margin-top:12px">
-      <span class="skill-tag">Diffusion Models</span><span class="skill-tag">GANs</span><span class="skill-tag">VAEs</span><span class="skill-tag">GNNs</span><span class="skill-tag">CNN</span><span class="skill-tag">Transformer</span><span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">Linux</span><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">L1000</span>
-    </div>
-  </div>
-</section>
+        <!-- Industry & Entrepreneurship -->
+        <section>
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Experience</div>
+                    <h2 class="section-title">产业经历 · 创业</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">AI 导师匹配小程序</div>
+                                <div class="card-subtitle">独立开发者 · 创始人</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            访谈50+用户识别痛点，推出MVP并主导2次迭代。
+                        </div>
+                    </div>
+                    <div class="card fade-on-scroll">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">广州人和智科技 — AI心理产品</div>
+                                <div class="card-subtitle">产品实习生</div>
+                            </div>
+                            <div class="card-date">2026.02 – 04</div>
+                        </div>
+                        <div class="card-body">
+                            提出"AI心理学家数字孪生"概念，推动校企合作落地。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Honors &amp; Leadership</h2>
-    <div class="card">
-      <div class="card-body">
-        <ul><li>National Scholarship (2 consecutive years)</li><li>Bao Steel Scholarship</li><li>National English Debate Competition &mdash; First Prize</li><li>University English Debate Team &mdash; Lead</li><li>Running Club &mdash; Vice President</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Technical</div>
+                    <h2 class="section-title">专业技能</h2>
+                </div>
+                <div class="skills-container fade-on-scroll">
+                    <div class="card-body" style="margin-top: 0;">
+                        <p><strong style="color:#fff;">AI/ML 框架</strong> — 扩散模型 · GANs · VAEs · GNNs · CNN · Transformer</p>
+                        <p style="margin-top: 16px;"><strong style="color:#fff;">编程语言</strong> — Python · R · Linux · PyTorch / TensorFlow · Prompt Engineering</p>
+                        <p style="margin-top: 16px;"><strong style="color:#fff;">药物计量学</strong> — L1000 / 转录组学 · 特征重要性分析 · 模型评估</p>
+                    </div>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Diffusion Models</span>
+                        <span class="skill-tag">GANs</span>
+                        <span class="skill-tag">VAEs</span>
+                        <span class="skill-tag">GNNs</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">Transformer</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">L1000</span>
+                        <span class="skill-tag">Transcriptomics</span>
+                        <span class="skill-tag">Molecular Docking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section" id="resume">
-  <div class="container">
-    <h2 class="section-title">Resume &amp; Cover Letters</h2>
-    <div class="download-grid">
-      <a class="download-btn" href="assets/pdfs/杨逸乐 EGFR研发岗位 暑期实习.pdf" download><span class="icon">📄</span> Resume &mdash; EGFR R&amp;D</a>
-      <a class="download-btn" href="assets/pdfs/杨逸乐 医药AI投资岗 暑期实习.pdf" download><span class="icon">📄</span> Resume &mdash; AI Investment</a>
-      <a class="download-btn" href="assets/pdfs/cover letter 研发.pdf" download><span class="icon">📝</span> Cover Letter &mdash; R&amp;D</a>
-      <a class="download-btn" href="assets/pdfs/cover lettter 投资.pdf" download><span class="icon">📝</span> Cover Letter &mdash; Investment</a>
-    </div>
-  </div>
-</section>
+        <!-- Honors -->
+        <section>
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Honors</div>
+                    <h2 class="section-title">荣誉 · 领导力</h2>
+                </div>
+                <div class="card fade-on-scroll">
+                    <div class="card-body">
+                        <ul>
+                            <li>国家奖学金（连续两年）</li>
+                            <li>宝钢奖学金</li>
+                            <li>全国英语辩论赛 · 一等奖（国家级）</li>
+                            <li>校英语辩论队 · 队长</li>
+                            <li>跑团 · 副会长</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-  <div class="container">&copy; 2026 Yile Yang &middot; yangyle3@mail2.sysu.edu.cn</div>
-</footer>
+        <!-- Resume Downloads -->
+        <section id="resume">
+            <div class="container">
+                <div class="section-header fade-on-scroll">
+                    <div class="section-label">Documents</div>
+                    <h2 class="section-title">简历 · 求职信</h2>
+                </div>
+                <div class="download-grid">
+                    <a class="download-card fade-on-scroll" href="assets/pdfs/杨逸乐 EGFR研发岗位 暑期实习.pdf" download>
+                        <span class="download-icon">📄</span>
+                        <div class="download-info">
+                            <h4>研发岗简历</h4>
+                            <p>EGFR R&D · 暑期实习</p>
+                        </div>
+                    </a>
+                    <a class="download-card fade-on-scroll" href="assets/pdfs/杨逸乐 医药AI投资岗 暑期实习.pdf" download>
+                        <span class="download-icon">📄</span>
+                        <div class="download-info">
+                            <h4>投资岗简历</h4>
+                            <p>医药AI投资 · 暑期实习</p>
+                        </div>
+                    </a>
+                    <a class="download-card fade-on-scroll" href="assets/pdfs/cover letter 研发.pdf" download>
+                        <span class="download-icon">📝</span>
+                        <div class="download-info">
+                            <h4>求职信 · 研发</h4>
+                            <p>Cover Letter for R&D</p>
+                        </div>
+                    </a>
+                    <a class="download-card fade-on-scroll" href="assets/pdfs/cover lettter 投资.pdf" download>
+                        <span class="download-icon">📝</span>
+                        <div class="download-info">
+                            <h4>求职信 · 投资</h4>
+                            <p>Cover Letter for Investment</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 杨逸乐 Yile Yang · yangyle3@mail2.sysu.edu.cn · +86 13934727949</p>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+                navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Intersection Observer 滚动触发动画
+        const fadeElements = document.querySelectorAll('.fade-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // 立即触发一次，让已经在视口内的元素出现
+        setTimeout(() => {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+    </script>
 </body>
 </html>
