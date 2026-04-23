@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yile Yang | 杨逸乐</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --primary: #2563eb; --bg: #f8fafc; --card: #fff; --text: #0f172a; --text-secondary: #475569; --border: #e2e8f0; --radius: 12px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+.container { max-width:900px; margin:0 auto; padding:0 24px; }
+.hero { background:linear-gradient(135deg,#1e3a5f,#2563eb); color:#fff; padding:64px 0 48px; }
+.hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:8px; }
+.hero .subtitle { font-size:1.1rem; opacity:.9; margin-bottom:4px; }
+.hero .tagline { font-size:.95rem; opacity:.7; margin-bottom:20px; }
+.hero-links { display:flex; gap:16px; flex-wrap:wrap; }
+.hero-links a { color:#fff; text-decoration:none; font-size:.9rem; padding:8px 20px; border:1px solid rgba(255,255,255,.3); border-radius:8px; transition:all .2s; }
+.hero-links a:hover { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.6); }
+.section { padding:48px 0; }
+.section-title { font-size:1.3rem; font-weight:600; margin-bottom:24px; display:flex; align-items:center; gap:10px; }
+.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:16px; transition:box-shadow .2s; }
+.card:hover { box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; gap:12px; flex-wrap:wrap; }
+.card-title { font-size:1.05rem; font-weight:600; }
+.card-subtitle { font-size:.85rem; color:var(--primary); font-weight:500; }
+.card-date { font-size:.8rem; color:var(--text-secondary); white-space:nowrap; }
+.card-body { font-size:.92rem; color:var(--text-secondary); }
+.card-body ul { padding-left:18px; margin-top:6px; }
+.card-body li { margin-bottom:4px; }
+.skills { display:flex; flex-wrap:wrap; gap:8px; }
+.skill-tag { background:#eff6ff; color:var(--primary); font-size:.82rem; padding:4px 14px; border-radius:20px; font-weight:500; }
+.download-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.download-btn { display:flex; align-items:center; gap:10px; padding:14px 18px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--text); font-size:.88rem; font-weight:500; transition:all .2s; }
+.download-btn:hover { border-color:var(--primary); color:var(--primary); box-shadow:0 2px 8px rgba(37,99,235,.1); }
+.download-btn .icon { font-size:1.2rem; }
+footer { text-align:center; padding:32px; color:var(--text-secondary); font-size:.85rem; border-top:1px solid var(--border); }
+@media (max-width:600px) { .hero h1 { font-size:1.8rem; } .hero { padding:40px 0 32px; } .section { padding:32px 0; } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <h1>&#x6768;&#x9038;&#x4E50; &#x2022; Yile Yang</h1>
+    <div class="subtitle">AI + Drug Discovery | Sun Yat-sen University</div>
+    <div class="tagline">GPA 4.2/5.0 &#x2022; Rank 1/74 &#x2022; PhD @ Boston University</div>
+    <div class="hero-links">
+      <a href="mailto:yangyle3@mail2.sysu.edu.cn">yangyle3@mail2.sysu.edu.cn</a>
+      <a href="tel:+8613934727949">+86 13934727949</a>
+      <a href="#resume">Resume / CV</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Boston University</div><div class="card-subtitle">PhD Direct Admission &mdash; AI + Drug Discovery</div></div>
+        <div class="card-date">2026 Fall</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">National University of Singapore</div><div class="card-subtitle">Summer Exchange</div></div>
+        <div class="card-date">2024 Summer</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Sun Yat-sen University</div><div class="card-subtitle">B.S. in Pharmacy &mdash; GPA 4.2/5.0, Rank 1/74</div></div>
+        <div class="card-date">2022 &ndash; 2026</div>
+      </div>
+      <div class="card-body">Key courses: Pharmacy, Pharmacology, Medical Statistical Modeling, Bioinformatics, AI in Pharmacy</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Research Experience (AI + Drug Discovery)</h2>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Westlake University &mdash; Prof. Jing Huang</div><div class="card-subtitle">Conditional Diffusion Model for Pharmacophore-guided Molecular Generation</div></div>
+        <div class="card-date">2025.07 &ndash; 09</div>
+      </div>
+      <div class="card-body">Developed conditional diffusion models for pharmacophore-constrained molecular generation.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Sun Yat-sen University &mdash; Prof. Jing Qin</div><div class="card-subtitle">L1000 Transcriptome-based Drug-like Molecule Generation</div></div>
+        <div class="card-date">2024.03 &ndash; 2025.09</div>
+      </div>
+      <div class="card-body">Generated drug-like molecules from L1000 transcriptomic data using conditional GANs/VAEs.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Sun Yat-sen University &mdash; Prof. Wenbin Deng</div><div class="card-subtitle">Exosome Therapy Research</div></div>
+        <div class="card-date">2023.07 &ndash; 2024.03</div>
+      </div>
+      <div class="card-body">Investigated exosome therapeutics. Skilled in wet-lab techniques: qPCR, ELISA, flow cytometry.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">First-author Review (under review)</div><div class="card-subtitle">Multi-Omics and AI in Cancer Drug Discovery</div></div>
+      </div>
+      <div class="card-body">Systematic review of multi-omics + AI in target identification and drug response prediction.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Industry &amp; Entrepreneurship</h2>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">AI Mentor Matching Mini-Program</div><div class="card-subtitle">Independent Developer &amp; Founder</div></div>
+      </div>
+      <div class="card-body">Interviewed 50+ users to identify pain points. Launched MVP and led 2 iterations.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Guangzhou Renhezhi Technology &mdash; AI Psychology Product</div><div class="card-subtitle">Product Intern</div></div>
+        <div class="card-date">2026.02 &ndash; 04</div>
+      </div>
+      <div class="card-body">Proposed "AI Psychologist Digital Twin" concept and facilitated collaboration.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">AI &amp; Technical Skills</h2>
+    <div class="card">
+      <div class="card-body">
+        <p><strong>AI/ML:</strong> Diffusion Models, GANs, VAEs, GNNs, CNN, Transformer</p>
+        <p style="margin-top:8px"><strong>Programming:</strong> Python, R, Linux; PyTorch/TensorFlow; Prompt Engineering</p>
+        <p style="margin-top:8px"><strong>Pharmacometrics:</strong> L1000, Transcriptomics, Feature Engineering, Model Evaluation</p>
+      </div>
+    </div>
+    <div class="skills" style="margin-top:12px">
+      <span class="skill-tag">Diffusion Models</span><span class="skill-tag">GANs</span><span class="skill-tag">VAEs</span><span class="skill-tag">GNNs</span><span class="skill-tag">CNN</span><span class="skill-tag">Transformer</span><span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">Linux</span><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">L1000</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Honors &amp; Leadership</h2>
+    <div class="card">
+      <div class="card-body">
+        <ul><li>National Scholarship (2 consecutive years)</li><li>Bao Steel Scholarship</li><li>National English Debate Competition &mdash; First Prize</li><li>University English Debate Team &mdash; Lead</li><li>Running Club &mdash; Vice President</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resume">
+  <div class="container">
+    <h2 class="section-title">Resume &amp; Cover Letters</h2>
+    <div class="download-grid">
+      <a class="download-btn" href="assets/pdfs/杨逸乐 EGFR研发岗位 暑期实习.pdf" download><span class="icon">📄</span> Resume &mdash; EGFR R&amp;D</a>
+      <a class="download-btn" href="assets/pdfs/杨逸乐 医药AI投资岗 暑期实习.pdf" download><span class="icon">📄</span> Resume &mdash; AI Investment</a>
+      <a class="download-btn" href="assets/pdfs/cover letter 研发.pdf" download><span class="icon">📝</span> Cover Letter &mdash; R&amp;D</a>
+      <a class="download-btn" href="assets/pdfs/cover lettter 投资.pdf" download><span class="icon">📝</span> Cover Letter &mdash; Investment</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; 2026 Yile Yang &middot; yangyle3@mail2.sysu.edu.cn</div>
+</footer>
+
+</body>
+</html>
